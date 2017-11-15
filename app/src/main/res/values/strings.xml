@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Foodentification</string>
+    <string name="take_picture">Take picture</string>
+    <string name="send_picture">Send picture</string>
+</resources>
