@@ -1,14 +1,16 @@
 package com.nguyen_nguyen.foodentification;
 
+import java.util.ArrayList;
+
 /**
  * Created by nguyennguyen on 10/21/17.
  */
 
 public class Recipe {
     private String name;
-    private String ingredient;
+    private ArrayList<String> ingredient;
     private String url;
-    public Recipe(String n, String in, String u)
+    public Recipe(String n, ArrayList<String> in, String u)
     {
         name = n;
         ingredient = in;
@@ -18,7 +20,7 @@ public class Recipe {
     {
         return name;
     }
-    public String getIngredient()
+    public ArrayList<String> getIngredient()
     {
         return ingredient;
     }

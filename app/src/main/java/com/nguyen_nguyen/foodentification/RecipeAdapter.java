@@ -37,7 +37,11 @@ public class RecipeAdapter extends ArrayAdapter<Recipe>{
         TextView ingredient = (TextView) listViewItem.findViewById(R.id.ingredient);
 
         name.setText(currRecipe.getName());
-        ingredient.setText(currRecipe.getIngredient());
+        String ingredientText = "";
+        for(int i = 0; i < currRecipe.getIngredient().size(); i++){
+            ingredientText = ingredientText + currRecipe.getIngredient().get(i) + "\n";
+        }
+        ingredient.setText(ingredientText);
         return listViewItem;
     }
 }

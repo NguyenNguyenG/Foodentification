@@ -95,18 +95,22 @@ public class DisplayRecipe extends AppCompatActivity implements LoaderManager.Lo
     @Override
     public Loader<ArrayList<Recipe>> onCreateLoader(int i, Bundle bundle) {
 
-        return new RecipeLoader(getApplicationContext(), bitmap);
+        return new RecipeLoader(getApplicationContext(), bitmap, getPackageName(),getPackageManager());
     }
 
     @Override
     public void onLoadFinished(Loader<ArrayList<Recipe>> loader, ArrayList<Recipe> recipes) {
-        emptyView.setText(recipes.get(0).getName());
-        emptyView.setTextSize(30);
-        progressBar.setVisibility(View.INVISIBLE);
+        recipeAdapter.clear();
+
+        progressBar.setVisibility(View.GONE);
+        if(recipes != null && !recipes.isEmpty())
+            recipeAdapter.addAll(recipes);
+        emptyView.setText("No Recipe Found");
     }
 
     @Override
     public void onLoaderReset(Loader<ArrayList<Recipe>> loader) {
-
+        recipeAdapter.clear();
+        emptyView.setText("");
     }
 }
